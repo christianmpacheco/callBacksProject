@@ -24,8 +24,22 @@ console.log(result3);   // true
 *******************************************************************************/
 
 function mySome(array, cb) {
-    // Your code here 
+    for(let i in array) {
+        let ele = array[i]
+        // IF the call back return true in the first place***
+        if(cb(ele, Number(i))) {
+            return true;
+        }
+    }
+    return false;
 }
+
+let result1 = mySome([5, 1, 7, 9], function(ele, i) {
+    return ele === i;
+});
+console.log(result1);   // true
+
+
 
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
 try {
